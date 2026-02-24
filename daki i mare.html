@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daki & Mare | Kompletan Meni</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff9f1c;
+            --dark: #2d3436;
+            --light: #ffffff;
+            --bg: #f8f9fa;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+        }
+
+        * { box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background-color: var(--bg); color: var(--dark); margin: 0; scroll-behavior: smooth; }
+
+        /* NAVIGACIJA */
+        .nav-container { position: fixed; top: 20px; left: 20px; z-index: 1000; }
+        .menu-toggle { background: var(--light); border: none; padding: 15px; border-radius: 12px; cursor: pointer; box-shadow: var(--shadow); display: flex; flex-direction: column; gap: 5px; }
+        .bar { width: 25px; height: 3px; background: var(--primary); border-radius: 2px; }
+        .nav-menu { position: absolute; top: 70px; left: 0; background: var(--light); padding: 20px; border-radius: 15px; box-shadow: var(--shadow); display: none; min-width: 220px; }
+        .nav-menu.active { display: block; animation: fadeInUp 0.3s ease; }
+        .nav-menu a { display: block; color: var(--dark); text-decoration: none; padding: 10px 0; font-weight: bold; border-bottom: 1px solid #eee; }
+
+        /* HERO */
+        header { height: 60vh; background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1513104890138-7c749659a591?q=80&w=1000&auto=format&fit=crop'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: var(--light); }
+        header h1 { font-family: 'Oswald', sans-serif; font-size: 4rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+
+        .container { max-width: 1200px; margin: auto; padding: 40px 20px; }
+        .section-title { font-family: 'Oswald', sans-serif; font-size: 2.5rem; text-align: center; margin: 60px 0 30px; color: var(--dark); border-bottom: 3px solid var(--primary); display: inline-block; width: 100%; padding-bottom: 10px; }
+
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 25px; }
+        .card { background: var(--light); padding: 25px; border-radius: 15px; box-shadow: var(--shadow); transition: 0.3s; border: 1px solid #efefef; }
+        .card:hover { transform: translateY(-5px); border-color: var(--primary); }
+
+        .card-title { font-family: 'Oswald', sans-serif; font-size: 1.6rem; color: var(--dark); margin-bottom: 5px; text-transform: uppercase; }
+        .ingredients { font-size: 0.85rem; color: #7f8c8d; margin-bottom: 15px; font-style: italic; min-height: 40px; }
+
+        .price-list { border-top: 1px solid #eee; padding-top: 10px; }
+        .p-row { display: flex; justify-content: space-between; padding: 5px 0; font-weight: 700; font-size: 1rem; }
+        .p-size { color: var(--primary); font-family: 'Oswald', sans-serif; }
+
+        .warning { background: #ffeaa7; padding: 15px; text-align: center; font-weight: bold; border-radius: 10px; margin-bottom: 30px; font-size: 0.9rem; }
+
+        footer { background: var(--dark); color: white; padding: 60px 20px; text-align: center; margin-top: 80px; }
+        .btn { background: var(--primary); color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; margin: 10px; font-family: 'Oswald', sans-serif; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="nav-container">
+        <button class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        </button>
+        <div class="nav-menu" id="navMenu">
+            <a href="#pice" onclick="toggleMenu()">🍕 Sve Pice</a>
+            <a href="#ostalo" onclick="toggleMenu()">🌯 Sendviči & Tortilje</a>
+            <a href="#slatko" onclick="toggleMenu()">🥞 Palačinke</a>
+            <a href="#kontakt" onclick="toggleMenu()">📞 Kontakt</a>
+        </div>
+    </div>
+
+    <header>
+        <h1>DAKI & MARE</h1>
+        <p>Padinska Skela | Autentičan ukus</p>
+    </header>
+
+    <div class="container">
+        <div class="warning">⚠️ PRI PORUČIVANJU PITAJTE ZA CENE ZBOG SITUACIJE NA TRŽIŠTU!</div>
+
+        <h2 class="section-title" id="pice">PICE (32cm / 42cm / 50cm)</h2>
+        <div class="menu-grid">
+            
+            <div class="card">
+                <div class="card-title">MARGERITA</div>
+                <div class="ingredients">pizza sos, kačkavalj, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>630 / 830 / 1000</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">VESUVIO</div>
+                <div class="ingredients">pizza sos, šunka (pil. prsa), kačkavalj, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>690 / 850 / 1100</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">KAPRIKOZA</div>
+                <div class="ingredients">pizza sos, pečurke, šunka (pil. prsa), kačkavalj, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>730 / 950 / 1200</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">SPECIJAL</div>
+                <div class="ingredients">pizza sos, kač., pečenica, kulen, pavlaka, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>800 / 1070 / 1300</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">DAKI</div>
+                <div class="ingredients">pizza sos, kač., piletina, feta, parmezan, origano, masline</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>810 / 1070 / 1300</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">MARE</div>
+                <div class="ingredients">pizza sos, kač., pečurke, kulen, suvi vrat, pečenica, jaje, pavlaka, origano, masline</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>920 / 1190 / 1500</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">VULKANO</div>
+                <div class="ingredients">dupla kora, pizza sos, šunka, suvi vrat, kulen, kačkavalj</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>990 / 1200 / 1500</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">ŠONE</div>
+                <div class="ingredients">pizza sos, kačkavalj, goveđa pršuta, goveđi kulen, feferone, masline</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>990 / 1200 / 1500</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">DIAVOLO</div>
+                <div class="ingredients">pizza sos, kačkavalj, kulen, pečurke, crveni luk, feferone, masline, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>920 / 1190 / 1480</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">VEGE</div>
+                <div class="ingredients">pizza sos, kačkavalj, pečurke, salata lola, paradajz, masline, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>920 / 950 / 1200</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">PROSCIUTTO</div>
+                <div class="ingredients">pizza sos, kač., pelat, rukola, čeri, parmezan, masline, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>920 / 1190 / 1500</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">PAESANO</div>
+                <div class="ingredients">pizza sos, kač., šunka, pečurke, panceta, feta, masline, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>920 / 1190 / 1480</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">QUATRO STAGIONI</div>
+                <div class="ingredients">pizza sos, kač., pečurke, šunka, jaje, kulen, masline, origano</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42/50 cm</span> <span>920 / 1190 / 1480</span></div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-title">NUTELLA PIZZA</div>
+                <div class="ingredients">nutella, vanila, lešnik, višnja-banana, plazma</div>
+                <div class="price-list">
+                    <div class="p-row"><span class="p-size">32/42 cm</span> <span>1180 / 1480</span></div>
+                </div>
+            </div>
+
+        </div>
+
+        <h2 class="section-title" id="ostalo">SENDVIČI & TORTILJE</h2>
+        <div class="menu-grid">
+            <div class="card">
+                <div class="card-title">INDEX SENDVIČ</div>
+                <div class="ingredients">Šunka, sir, pečurke, prilozi po želji</div>
+                <div class="p-row"><span>Cena</span> <span class="p-size">350 RSD</span></div>
+            </div>
+            <div class="card">
+                <div class="card-title">PILEĆA TORTILJA</div>
+                <div class="ingredients">Grilovana piletina, povrće, namazi</div>
+                <div class="p-row"><span>Cena</span> <span class="p-size">420 RSD</span></div>
+            </div>
+        </div>
+
+        <h2 class="section-title" id="slatko">SLATKE PALAČINKE</h2>
+        <div class="menu-grid">
+            <div class="card">
+                <div class="card-title">NUTELLA / EUROKREM</div>
+                <div class="ingredients">Plazma, orasi, džem, dodaci po želji</div>
+                <div class="p-row"><span>Cena od</span> <span class="p-size">200 - 350 RSD</span></div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer id="kontakt">
+        <h2>KONTAKT & DOSTAVA</h2>
+        <p>📍 Padinska Skela 1 (pored biblioteke)</p>
+        <p>📞 065 6724780</p>
+        <p>⏰ Pon-Pet: 09-22h | Subota: 15-22h</p>
+        <a href="tel:0656724780" class="btn">POZOVI ODMAH</a>
+        <a href="http://googleusercontent.com/maps.google.com/5" target="_blank" class="btn" style="background:#4285F4">GOOGLE MAPS</a>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById('navMenu').classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
